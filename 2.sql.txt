@@ -1,0 +1,7 @@
+SELECT NAME, Total
+FROM DEPARTMENT LEFT JOIN 
+                (SELECT DEPT_ID, COUNT(NAME) Total 
+                FROM EMPLOYEE 
+                GROUP BY DEPT_ID) D
+ON ID = D.DEPT_ID
+ORDER BY Total DESC, NAME ASC
